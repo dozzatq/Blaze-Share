@@ -1,4 +1,4 @@
-package com.github.blaze.share;
+package com.github.dozzatq.blaze.share;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -70,7 +70,7 @@ public class BlazeShareAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         stateListDrawable.addState(StateSet.WILD_CARD, null);
 
         // set the StateListDrawable as background of the item view
-        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
             blazeShareHolder.itemView.setBackgroundDrawable(stateListDrawable);
         }
         else {

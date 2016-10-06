@@ -1,4 +1,4 @@
-package com.github.blaze.share;
+package com.github.dozzatq.blaze.share;
 
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;

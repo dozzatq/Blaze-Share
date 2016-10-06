@@ -1,4 +1,4 @@
-package com.github.blaze.share;
+package com.github.dozzatq.blaze.share;
 
 import org.junit.Test;
 

@@ -1,9 +1,9 @@
-package com.github.blaze.share;
+package com.github.dozzatq.blaze.share;
 
 import android.content.Intent;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -45,7 +45,9 @@ public class BlazeShareActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayUseLogoEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
-        setTitle(getIntent().getStringExtra(android.content.Intent.EXTRA_SUBJECT));
+        if (getIntent().getStringExtra(BlazeShare.SEND_SHARE_TITLE)==null)
+            setTitle(getIntent().getStringExtra(Intent.EXTRA_SUBJECT));
+        else setTitle(getIntent().getStringExtra(BlazeShare.SEND_SHARE_TITLE));
         shareView = (RecyclerView) findViewById(R.id.recyclerShareView);
         itemAnimator = new DefaultItemAnimator();
         itemAnimator.setSupportsChangeAnimations(false);

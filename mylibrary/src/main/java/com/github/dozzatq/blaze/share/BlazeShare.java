@@ -1,4 +1,4 @@
-package com.github.blaze.share;
+package com.github.dozzatq.blaze.share;
 
 import android.app.ActivityOptions;
 import android.content.BroadcastReceiver;
@@ -46,6 +46,18 @@ public class BlazeShare {
         callbackHashMap.put(packageS, customShareCallback);
     }
 
+    public String getVkPackageName()
+    {
+        return "com.vkontakte.android";
+    }
+
+    public String getFacebookName () { return  "com.facebook.katana"; }
+
+    public void show()
+    {
+        show(null);
+    }
+
     public void show(@Nullable String title)
     {
         Intent intent = new Intent(appContext, BlazeShareActivity.class);
@@ -61,7 +73,11 @@ public class BlazeShare {
                     appContext.startActivity(shareIntent);
                 }
                 else {
-                    callbackHashMap.get(selectedPackage).shareSelected(selectedPackage, shareIntent);
+                    if (!callbackHashMap.get(selectedPackage).shareSelected(selectedPackage, shareIntent))
+                    {
+                        shareIntent.setPackage(selectedPackage);
+                        appContext.startActivity(shareIntent);
+                    }
                 }
             }
         };
