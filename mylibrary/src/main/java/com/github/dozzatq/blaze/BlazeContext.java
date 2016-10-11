@@ -23,6 +23,11 @@ public class BlazeContext {
 
     private Context applicationContext;
 
+    public void init(Context applicationContext)
+    {
+        ourInstance.setApplicationContext(applicationContext);
+    }
+
     public Context getApplicationContext() {
         return applicationContext;
     }
