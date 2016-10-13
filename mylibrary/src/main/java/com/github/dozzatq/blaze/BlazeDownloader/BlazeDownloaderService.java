@@ -44,6 +44,9 @@ public class BlazeDownloaderService extends Service {
 
             Bundle intentBundle = msg.getData();
 
+            if (intentBundle==null)
+                return;
+
             String filename = intentBundle.getString(BlazeDownloaderConfig.PARAM_FILENAME);
             String receiver = intentBundle.getString(BlazeDownloaderConfig.PARAM_RECEIVER);
             String downloadUrl = intentBundle.getString(BlazeDownloaderConfig.PARAM_URL);

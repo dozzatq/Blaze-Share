@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
@@ -102,13 +103,18 @@ public class BlazeShare {
         public boolean shareSelected(String selectedPackage, Intent sharedIntent);
     }
 
-    @SuppressWarnings("unchecked")
     public static void startCompatActivity(AppCompatActivity activity , Intent intent)
     {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(activity);
-            activity.startActivity(intent, activityOptions.toBundle());
+            try {
+                activity.startActivity(intent, activityOptions.toBundle());
+            }
+            catch (IllegalArgumentException e)
+            {
+                activity.startActivity(intent);
+            }
         }
-        else activity.startActivity(intent);
+        activity.startActivity(intent);
     }
 }
