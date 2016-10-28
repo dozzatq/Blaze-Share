@@ -65,7 +65,7 @@ public class BlazeDownloader
                         builderNotification = builderNotification
                                 .setContentText(getStartNotificationText())
                                 .setStyle(new NotificationCompat.BigTextStyle()
-                                    .bigText(getDownloadedText()));
+                                    .bigText(getStartNotificationText()));
                         mNotifyManager.notify(notificationId, builderNotification.build());
                     }
                     break;

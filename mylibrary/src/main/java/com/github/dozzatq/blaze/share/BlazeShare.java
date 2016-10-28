@@ -114,7 +114,8 @@ public class BlazeShare {
             {
                 activity.startActivity(intent);
             }
+        }else {
+            activity.startActivity(intent);
         }
-        activity.startActivity(intent);
     }
 }
